@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import pyramidBackground from './pyramid_background.jpg';
+import pyramidBackground from './assets/pyramid_background.jpg';
 import axios from 'axios';
 
 
@@ -40,7 +40,7 @@ function Login() {
 
     return (
         <div className='d-flex justify-content-center align-items-center' style={{ height: '100vh', backgroundImage: `url(${pyramidBackground})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
-            <div className='p-4 bg-white rounded shadow' style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', maxWidth: '400px', width: '100%', backdropFilter: 'blur(5px)', padding: '30px' }}>
+            <div className='p-4 bg-white rounded shadow' id="login" style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', maxWidth: '400px', width: '100%', backdropFilter: 'blur(5px)', padding: '30px' }}>
                 <h2 className="mb-4 text-center" style={{ fontSize: '2rem', color: '#000' }}>Login</h2>
                 {error && <div className="alert alert-danger" role="alert">{error}</div>}
                 <form onSubmit={handleSubmit}>
@@ -53,7 +53,7 @@ function Login() {
                         <input type="password" id="password" placeholder='Enter Password' style={{ width: '100%', padding: '15px', fontSize: '1.2rem' }} value={password} onChange={e => setPassword(e.target.value)}/>
                     </div>
                     <div className="d-grid gap-2">
-                        <button className='btn btn-primary btn-lg' style={{ fontSize: '1.2rem' }}>Login</button>
+                        <button className='btn btn-primary btn-lg' id="submit" style={{ fontSize: '1.2rem' }}>Login</button>
                     </div>
                 </form>
             </div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import pyramidBackground from './pyramid_background.jpg';
+import pyramidBackground from './assets/pyramid_background.jpg';
 
 const welcomeStyle = {
   color: 'white',
