@@ -3,12 +3,19 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "scripts": {
+    "pretest": "eslint .",
+    "test": "playwright test"
+  },
   "devDependencies": {
+    "@eslint/js": "^9.7.0",
     "@playwright/test": "^1.44.1",
-    "@types/node": "^20.13.0"
+    "@types/node": "^20.13.0",
+    "eslint": "^9.7.0",
+    "globals": "^15.8.0",
+    "typescript-eslint": "^7.16.0"
   }
 }
