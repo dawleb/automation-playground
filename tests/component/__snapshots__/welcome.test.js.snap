@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  style={
+    {
+      "backgroundImage": "url()",
+      "backgroundPosition": "center",
+      "backgroundSize": "cover",
+      "height": "100vh",
+    }
+  }
+>
+  <h1
+    style={
+      {
+        "color": "white",
+        "lineHeight": "100vh",
+        "textAlign": "center",
+      }
+    }
+  >
+    Welcome!
+  </h1>
+</div>
+`;

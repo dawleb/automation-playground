@@ -5,10 +5,10 @@ import Welcome from './Welcome';
 function App() {
   return (
     <Router>
-      <Routes >
+      <Routes>
         <Route path="/" element={<Login/>} exact />
         <Route path="/welcome" element={<Welcome/>} exact />
-      </Routes >
+      </Routes>
     </Router>
   );
 }
