@@ -9,18 +9,22 @@ app.use(express.json());
 app.use(cors());
 
 const db = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "root",
-    database: "crud"
+    host: "",
+    user: "",
+    password: "",
+    database: "",
+    connectionLimit: 10,
+    acquireTimeout: 10000,
+    connectTimeout: 10000
 });
 
-db.connect((err) => {
+db.getConnection((err, connection) => {
     if (err) {
         console.error('Error connecting to the database:', err);
         return;
     }
     console.log('Connected to the MySQL server.');
+    connection.release();
 });
 
 app.post('/login', (req, res) => {

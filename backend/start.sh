@@ -11,4 +11,4 @@ mysql -u root -p -e "ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_
 USE automa22_crud; DELETE FROM login;
 
 # Start Node.js serwer
-npm run run server
+npm run server
