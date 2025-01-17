@@ -64,7 +64,7 @@ function Login() {
                         "Creating An End-To-End Test Framework: A Detailed Guide With Practical Examples From Playwright, Cypress, and Cucumber"
                     </p>
                     <p style={{ margin: '0', color: '#333' }}>
-                        By Dawid Lebioda <span style={{ fontSize: '1.2rem', verticalAlign: 'middle' }}> - ©Copyright 2025 -</span> <span style={{ color: '#004080' }}>Part of the <em>Automation: Theory and Practice</em> series.</span>
+                        By Dawid Lebioda &mdash; <span style={{ fontSize: '1rem' }}>© Copyright 2025</span> <span style={{ color: '#004080' }}>Part of the <em>Automation: Theory and Practice</em> series.</span>
                     </p>
                 </div>
             </div>
