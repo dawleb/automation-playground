@@ -52,13 +52,13 @@ function Login() {
                         <label htmlFor="password" style={{ display: 'block', fontSize: '1.5rem', color: '#333', marginBottom: '10px' }}>Enter Password</label>
                         <input type="password" id="password" placeholder='[Your Password]' style={{ width: '100%', padding: '15px', fontSize: '1.2rem' }} value={password} onChange={e => setPassword(e.target.value)}/>
                     </div>
-                    <div className="d-grid gap-2">
+                    <div className="d-grid gap-2" style={{ marginBottom: '20px' }}>
                         <button className='btn btn-primary btn-lg' id="submit" style={{ fontSize: '1.2rem' }}>Login</button>
                     </div>
                 </form>        
                 <div className="mt-4 text-center" style={{ fontSize: '1.5rem', color: '#333', borderTop: '2px solid #0056b3', paddingTop: '20px', lineHeight: '1.8' }}>
                     <p style={{ margin: '0 0 15px 0', fontWeight: 'bold' }}>
-                        This site is a <strong style={{ color: '#004080' }}>playground</strong> for the book:
+                        This site is a <strong style={{ color: '#004080' }}>sandbox</strong> for the book:
                     </p>
                     <p style={{ margin: '0 0 15px 0', fontStyle: 'italic', fontSize: '1.5rem', color: '#444' }}>
                         "Creating An End-To-End Test Framework: A Detailed Guide With Practical Examples From Playwright, Cypress, and Cucumber"
