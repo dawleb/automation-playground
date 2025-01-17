@@ -58,7 +58,7 @@ function Login() {
                 </form>        
                 <div className="mt-4 text-center" style={{ fontSize: '1.5rem', color: '#333', borderTop: '2px solid #0056b3', paddingTop: '20px', lineHeight: '1.8' }}>
                     <p style={{ margin: '0 0 15px 0', fontWeight: 'bold' }}>
-                        This site is a <strong style={{ color: '#004080' }}>sandbox</strong> for the book:
+                        This site is a <strong style={{ color: '#004080' }}>sandbox</strong> for testing examples from the book:
                     </p>
                     <p style={{ margin: '0 0 15px 0', fontStyle: 'italic', fontSize: '1.5rem', color: '#444' }}>
                         "Creating An End-To-End Test Framework: A Detailed Guide With Practical Examples From Playwright, Cypress, and Cucumber"
