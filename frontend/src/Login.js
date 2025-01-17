@@ -46,19 +46,31 @@ function Login() {
                 <form onSubmit={handleSubmit}>
                     <div style={{ marginBottom: '20px' }}>
                         <label htmlFor="email" style={{ display: 'block', fontSize: '1.5rem', color: '#333', marginBottom: '10px' }}>Enter Email</label>
-                        <input type="email" id="email" placeholder='Enter Email' style={{ width: '100%', padding: '15px', fontSize: '1.2rem' }} value={email} onChange={e => setEmail(e.target.value)}/>
+                        <input type="email" id="email" placeholder='[Your Email]' style={{ width: '100%', padding: '15px', fontSize: '1.2rem' }} value={email} onChange={e => setEmail(e.target.value)}/>
                     </div>
                     <div style={{ marginBottom: '20px' }}>
                         <label htmlFor="password" style={{ display: 'block', fontSize: '1.5rem', color: '#333', marginBottom: '10px' }}>Enter Password</label>
-                        <input type="password" id="password" placeholder='Enter Password' style={{ width: '100%', padding: '15px', fontSize: '1.2rem' }} value={password} onChange={e => setPassword(e.target.value)}/>
+                        <input type="password" id="password" placeholder='[Your Password]' style={{ width: '100%', padding: '15px', fontSize: '1.2rem' }} value={password} onChange={e => setPassword(e.target.value)}/>
                     </div>
                     <div className="d-grid gap-2">
                         <button className='btn btn-primary btn-lg' id="submit" style={{ fontSize: '1.2rem' }}>Login</button>
                     </div>
-                </form>
+                </form>        
+                <div className="mt-4 text-center" style={{ fontSize: '1.5rem', color: '#333', borderTop: '2px solid #0056b3', paddingTop: '20px', lineHeight: '1.8' }}>
+                    <p style={{ margin: '0 0 15px 0', fontWeight: 'bold' }}>
+                        This site is a <strong style={{ color: '#004080' }}>playground</strong> for the book:
+                    </p>
+                    <p style={{ margin: '0 0 15px 0', fontStyle: 'italic', fontSize: '1.5rem', color: '#444' }}>
+                        "Creating An End-To-End Test Framework: A Detailed Guide With Practical Examples From Playwright, Cypress, and Cucumber"
+                    </p>
+                    <p style={{ margin: '0', color: '#333' }}>
+                        By Dawid Lebioda <span style={{ fontSize: '1.2rem', verticalAlign: 'middle' }}> - ©Copyright 2025 -</span> <span style={{ color: '#004080' }}>Part of the <em>Automation: Theory and Practice</em> series.</span>
+                    </p>
+                </div>
             </div>
         </div>
     )
+
 }
 
 export default Login;
