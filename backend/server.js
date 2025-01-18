@@ -35,7 +35,7 @@ db.getConnection((err, connection) => {
     connection.release();
 });
 
-app.post('/login', (req, res) => {
+app.post('api/login', (req, res) => {
     const sql = "SELECT * FROM login WHERE username = ? AND password = ?";
 
     console.log('Email:', req.body.email);
@@ -55,7 +55,7 @@ app.post('/login', (req, res) => {
     });
 });
 
-app.get('/welcome', (req, res) => {
+app.get('api/welcome', (req, res) => {
     res.send('Welcome!');
 });
 
