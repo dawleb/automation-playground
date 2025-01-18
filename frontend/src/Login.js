@@ -4,6 +4,7 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import pyramidBackground from './assets/pyramid_background.jpg';
 import axios from 'axios';
 
+const API_URL = process.env.REACT_APP_BACKEND_URL || "http://localhost:8081";
 
 function Login() {
     const [email, setEmail] = useState('');
@@ -16,7 +17,7 @@ function Login() {
         console.log('Email:', email);
         console.log('Password:', password);
 
-        axios.post('http://localhost:8081/login', {
+        axios.post(`${API_URL}/login`, {
             email: email,
             password: password
         })
