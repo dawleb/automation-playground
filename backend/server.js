@@ -48,7 +48,7 @@ app.post('/api/login', (req, res) => {
         }
         console.log('Query result:', data);
         if (data.length > 0) {
-            res.redirect('/welcome');
+            res.redirect('/api/welcome');
         } else {
             return res.status(401).json("No Record");
         }
