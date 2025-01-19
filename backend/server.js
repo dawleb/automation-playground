@@ -3,20 +3,20 @@
 var express = require('express');
 var mysql = require('mysql');
 var cors = require('cors');
+const bcrypt = require('bcrypt');
 
 const app = express();
 app.use(express.json());
-app.use(cors());
 
 app.use(
     cors({
-      origin: process.env.REACT_APP_BACKEND_URL,
-      methods: ["GET", "POST", "PUT", "DELETE"],
-      credentials: true,
+        origin: process.env.REACT_APP_BACKEND_URL,
+        methods: ["GET", "POST", "PUT", "DELETE"],
+        credentials: true,
     })
-  );
+);
 
-  const db = mysql.createPool({
+const db = mysql.createPool({
     host: process.env.DB_HOST,
     user: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
@@ -24,7 +24,7 @@ app.use(
     connectionLimit: 10,
     acquireTimeout: 10000,
     connectTimeout: 10000,
-  });
+});
 
 db.getConnection((err, connection) => {
     if (err) {
@@ -36,21 +36,41 @@ db.getConnection((err, connection) => {
 });
 
 app.post('/api/login', (req, res) => {
-    const sql = "SELECT * FROM login WHERE username = ? AND password = ?";
+    const { email, password } = req.body;
+    const sql = "SELECT * FROM login WHERE username = ?";
 
-    console.log('Email:', req.body.email);
-    console.log('Password:', req.body.password);
+    console.log('Email:', email);
+    console.log('Password:', password);
 
-    db.query(sql, [req.body.email, req.body.password], (err, data) => {
+    db.query(sql, [email.toLowerCase()], (err, data) => {
         if (err) {
             console.error('Error executing query:', err);
             return res.status(500).json("Error");
         }
         console.log('Query result:', data);
         if (data.length > 0) {
-            res.redirect('/api/welcome');
+            const user = data[0];
+
+            bcrypt.compare(password, user.password, (err, result) => {
+                if (err) {
+                    console.error('Error comparing password:', err);
+                    return res.status(500).json("Error comparing password");
+                }
+
+                if (result) {
+                    return res.status(200).json({
+                        message: "Login successful",
+                        user: {
+                            id: user.id,
+                            username: user.username,
+                        },
+                    });
+                } else {
+                    return res.status(401).json("Invalid email or password");
+                }
+            });
         } else {
-            return res.status(401).json("No Record");
+            return res.status(401).json("Invalid email or password");
         }
     });
 });
@@ -60,5 +80,5 @@ app.get('/api/welcome', (req, res) => {
 });
 
 app.listen(8081, () => {
-    console.log("Listening...");
+    console.log("Server is running on port 8081...");
 });

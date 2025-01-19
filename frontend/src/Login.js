@@ -22,10 +22,12 @@ function Login() {
         axios.post(`${API_URL}/login`, {
             email: email,
             password: password
+        }, {
+            withCredentials: true
         })
         .then(res => {
             console.log('Response:', res);
-            if (res.status === 200 && res.data === "Welcome!") {
+            if (res.status === 200 && res.data.message === "Login successful") {
                 navigate('/welcome');
             } else {
                 setError('Invalid email or password');
@@ -40,7 +42,7 @@ function Login() {
             }
         });
     }
-
+    
     return (
         <div className='d-flex justify-content-center align-items-center' style={{ height: '100vh', backgroundImage: `url(${pyramidBackground})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
             <div className='p-4 bg-white rounded shadow' id="login" style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', maxWidth: '400px', width: '100%', backdropFilter: 'blur(5px)', padding: '30px' }}>
