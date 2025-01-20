@@ -53,6 +53,7 @@
   font-size: 1.6rem;
   color: #333;
   margin-bottom: 10px;
+  text-align: left; 
 }
 
 input {
