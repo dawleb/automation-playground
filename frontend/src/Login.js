@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import pyramidBackground from './assets/pyramid_background.jpg';
 import axios from 'axios';
+import './App.css';
 
 const API_URL = process.env.REACT_APP_BACKEND_URL 
     ? `${process.env.REACT_APP_BACKEND_URL}/api` 
@@ -61,15 +62,16 @@ function Login() {
                         <button className='btn btn-primary btn-lg' id="submit" style={{ fontSize: '1.2rem' }}>Login</button>
                     </div>
                 </form>        
-                <div className="mt-4 text-center" style={{ fontSize: '1.5rem', color: '#333', borderTop: '2px solid #0056b3', paddingTop: '20px', lineHeight: '1.8' }}>
-                    <p style={{ margin: '0 0 15px 0', fontWeight: 'bold' }}>
-                        This site is a <strong style={{ color: '#004080' }}>sandbox</strong> for testing examples from the book:
+                <div className="footer">
+                    <p>
+                        This site serves as a <strong>sandbox</strong> for testing examples from the book:
                     </p>
-                    <p style={{ margin: '0 0 15px 0', fontStyle: 'italic', fontSize: '1.5rem', color: '#444' }}>
-                        "Creating An End-To-End Test Framework: A Detailed Guide With Practical Examples From Playwright, Cypress, and Cucumber"
+                    <p>
+                        <em>"Creating An End-To-End Test Framework: A Detailed Guide With Practical Examples From Playwright, Cypress, and Cucumber"</em>
                     </p>
-                    <p style={{ margin: '0', color: '#333' }}>
-                        By Dawid Lebioda &mdash; <span style={{ fontSize: '1rem' }}>© Copyright 2025</span> <span style={{ color: '#004080' }}>Part of the <em>Automation: Theory and Practice</em> series.</span>
+                    <p>
+                        By Dawid Lebioda &mdash; <span className="copyright">© Copyright 2025</span> 
+                    <span> Part of the <em>Automation: Theory and Practice</em> series.</span>
                     </p>
                 </div>
             </div>

@@ -54,6 +54,7 @@
     "testEnvironment": "jsdom"
   },
   "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@babel/preset-env": "^7.24.6",
     "@babel/preset-react": "^7.24.6",
     "@types/jest": "^29.5.12",
