@@ -100,15 +100,15 @@ button#submit {
 
 @media (min-width: 768px) {
   .form-label {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
   }
 
   .footer {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     line-height: 2;
   }
 
   .footer .copyright {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
 }

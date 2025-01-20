@@ -70,7 +70,7 @@ function Login() {
                 </p>
                 <p>
                     By Dawid Lebioda &mdash; <span className="copyright">© Copyright 2025</span>
-                    <span> Part of the <em>Automation: Theory and Practice</em> books series.</span>
+                    <span> Part of the <em>Automation: Theory and Practice</em> series of books.</span>
                 </p>
             </div>
         </div>
