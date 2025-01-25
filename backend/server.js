@@ -1,8 +1,8 @@
 'use strict';
 
-var express = require('express');
-var mysql = require('mysql');
-var cors = require('cors');
+const express = require('express');
+const mysql = require('mysql');
+const cors = require('cors');
 const bcrypt = require('bcrypt');
 
 const app = express();
@@ -10,17 +10,17 @@ app.use(express.json());
 
 app.use(
     cors({
-        origin: process.env.REACT_APP_BACKEND_URL,
+        origin: process.env.REACT_APP_BACKEND_URL || 'http://localhost:3000',
         methods: ["GET", "POST", "PUT", "DELETE"],
         credentials: true,
     })
 );
 
 const db = mysql.createPool({
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_NAME,
+    host: process.env.DB_HOST || 'localhost',
+    user: process.env.DB_USER || 'root',
+    password: process.env.DB_PASSWORD || 'root',
+    database: process.env.DB_NAME || 'crud',
     connectionLimit: 10,
     acquireTimeout: 10000,
     connectTimeout: 10000,

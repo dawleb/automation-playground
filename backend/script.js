@@ -4,8 +4,8 @@ const mysql = require('mysql');
 const db = mysql.createPool({
   host: process.env.DB_HOST || 'localhost',
   user: process.env.DB_USER || 'root',
-  password: process.env.DB_PASSWORD || '',
-  database: process.env.DB_NAME || 'your_database_name',
+  password: process.env.DB_PASSWORD || 'root',
+  database: process.env.DB_NAME || 'crud',
 });
 
 db.getConnection((err, connection) => {
@@ -19,7 +19,7 @@ db.getConnection((err, connection) => {
 
 const hashPasswords = async () => {
   const users = [
-    { id: 0, password: '' }, 
+    { id: 1, password: 'root' }, 
   ];
 
   for (const user of users) {
