@@ -13,7 +13,7 @@
     "react-bootstrap": "^2.10.2",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.23.1",
-    "react-scripts": "5.0.1",
+    "react-scripts": "^5.0.1",
     "serve": "^14.2.4",
     "web-vitals": "^2.1.4"
   },
@@ -54,8 +54,10 @@
     "testEnvironment": "jsdom"
   },
   "devDependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
-    "@babel/preset-env": "^7.24.6",
+    "@babel/core": "7.22.5",
+    "@babel/eslint-parser": "7.22.5",
+    "@babel/plugin-transform-private-property-in-object": "^7.25.9",
+    "@babel/preset-env": "7.22.5",
     "@babel/preset-react": "^7.24.6",
     "@types/jest": "^29.5.12",
     "babel-jest": "^29.7.0",

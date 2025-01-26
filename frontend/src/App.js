@@ -1,6 +1,7 @@
 import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 import Login from './Login';
 import Welcome from './Welcome';
+import { Navigate } from 'react-router-dom';
 
 function App() {
   return (
