@@ -16,7 +16,6 @@ function Login() {
         const checkSession = async () => {
             console.log("Checking session...");
             try {
-                // Sprawdzamy sesję użytkownika
                 const res = await axios.get(`${API_URL}/session`, { withCredentials: true });
                 if (res.status === 200 && res.data.isLoggedIn) {
                     console.log("Session is valid, navigating to welcome");
@@ -32,7 +31,6 @@ function Login() {
             }
         };
 
-        // Jeśli użytkownik nie jest zalogowany, sprawdzamy sesję
         if (localStorage.getItem('isLoggedIn') !== 'true') {
             checkSession();
         } else {
@@ -71,6 +69,19 @@ function Login() {
             }
         }
     }
+
+    const handleLogout = async () => {
+        try {
+            const res = await axios.post(`${API_URL}/logout`, {}, { withCredentials: true });
+            if (res.status === 200) {
+                console.log("Logout successful");
+                localStorage.removeItem('isLoggedIn');
+                navigate('/login');
+            }
+        } catch (error) {
+            console.error("Logout error:", error);
+        }
+    };
 
     if (loading) {
         return <div className="d-flex justify-content-center align-items-center vh-100 background">Loading...</div>;
