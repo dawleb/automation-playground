@@ -8,6 +8,7 @@ const jwt = require('jsonwebtoken');
 const dotenv = require('dotenv');
 const expressSession = require('express-session');
 const cookieParser = require('cookie-parser');
+const path = require('path');
 
 dotenv.config();
 
@@ -141,6 +142,14 @@ app.post('/api/logout', (req, res) => {
     res.clearCookie('auth_token');
     res.json({ message: 'Logout successful' });
 });
+
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static(path.join(__dirname, 'client/build')));
+
+    app.get('*', (req, res) => {
+        res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+    });
+}
 
 app.listen(8081, () => {
     console.log("Server is running on port 8081...");
