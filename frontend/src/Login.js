@@ -5,7 +5,6 @@ import axios from 'axios';
 import './App.css';
 import API_URL from './config';
 
-
 function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -17,6 +16,7 @@ function Login() {
         const checkSession = async () => {
             console.log("Checking session...");
             try {
+                // Sprawdzamy sesję użytkownika
                 const res = await axios.get(`${API_URL}/session`, { withCredentials: true });
                 if (res.status === 200 && res.data.isLoggedIn) {
                     console.log("Session is valid, navigating to welcome");
@@ -32,6 +32,7 @@ function Login() {
             }
         };
 
+        // Jeśli użytkownik nie jest zalogowany, sprawdzamy sesję
         if (localStorage.getItem('isLoggedIn') !== 'true') {
             checkSession();
         } else {
