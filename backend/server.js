@@ -6,7 +6,6 @@ const cors = require('cors');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const dotenv = require('dotenv');
-const expressSession = require('express-session');
 const cookieParser = require('cookie-parser');
 const path = require('path');
 
@@ -43,19 +42,24 @@ db.getConnection((err, connection) => {
     connection.release();
 });
 
-app.use(
-    expressSession({
-        secret: process.env.SESSION_SECRET || 'supersecretkey',
-        resave: false,
-        saveUninitialized: false,
-        cookie: {
-            httpOnly: true,
-            secure: process.env.NODE_ENV === 'production',
-            sameSite: 'strict',
-        },
-    })
-);
+// HELPERS
+const createAccessToken = (user) => {
+    return jwt.sign(
+        { id: user.id, username: user.username },
+        process.env.JWT_SECRET || 'myjwtsecret',
+        { expiresIn: '2m' }
+    );
+};
 
+const createRefreshToken = (user) => {
+    return jwt.sign(
+        { id: user.id, username: user.username },
+        process.env.JWT_REFRESH_SECRET || 'myrefreshsecret',
+        { expiresIn: '7d' }
+    );
+};
+
+// LOGIN
 app.post('/api/login', (req, res) => {
     const { email, password } = req.body;
     const sql = "SELECT * FROM login WHERE username = ?";
@@ -76,13 +80,16 @@ app.post('/api/login', (req, res) => {
                 }
 
                 if (result) {
-                    const token = jwt.sign(
-                        { id: user.id, username: user.username },
-                        process.env.JWT_SECRET || 'myjwtsecret',
-                        { expiresIn: '15m' }
-                    );
+                    const accessToken = createAccessToken(user);
+                    const refreshToken = createRefreshToken(user);
 
-                    res.cookie('auth_token', token, {
+                    res.cookie('auth_token', accessToken, {
+                        httpOnly: true,
+                        secure: process.env.NODE_ENV === 'production',
+                        sameSite: 'strict',
+                    });
+
+                    res.cookie('refresh_token', refreshToken, {
                         httpOnly: true,
                         secure: process.env.NODE_ENV === 'production',
                         sameSite: 'strict',
@@ -105,16 +112,41 @@ app.post('/api/login', (req, res) => {
     });
 });
 
+// REFRESH TOKEN
+app.post('/api/refresh', (req, res) => {
+    const token = req.cookies.refresh_token;
+
+    if (!token) {
+        return res.status(401).json({ message: 'Refresh token is missing' });
+    }
+
+    jwt.verify(token, process.env.JWT_REFRESH_SECRET || 'myrefreshsecret', (err, decoded) => {
+        if (err) {
+            return res.status(403).json({ message: 'Invalid or expired refresh token' });
+        }
+
+        const accessToken = createAccessToken(decoded);
+        res.cookie('auth_token', accessToken, {
+            httpOnly: true,
+            secure: process.env.NODE_ENV === 'production',
+            sameSite: 'strict',
+        });
+
+        return res.status(200).json({ message: 'Token refreshed successfully' });
+    });
+});
+
+// SESSION CHECK
 app.get('/api/session', (req, res) => {
     const token = req.cookies.auth_token;
 
     if (!token) {
-        return res.status(401).json({ message: 'Unauthorized' });
+        return res.status(401).json({ message: 'Access token is missing' });
     }
 
     jwt.verify(token, process.env.JWT_SECRET || 'myjwtsecret', (err, decoded) => {
         if (err) {
-            return res.status(401).json({ message: 'Unauthorized' });
+            return res.status(403).json({ message: 'Invalid or expired access token' });
         }
         res.status(200).json({
             isLoggedIn: true,
@@ -123,24 +155,15 @@ app.get('/api/session', (req, res) => {
     });
 });
 
-app.get('/api/welcome', (req, res) => {
-    const token = req.cookies.auth_token;
-
-    if (!token) {
-        return res.status(401).json({ message: 'Unauthorized' });
-    }
-
-    jwt.verify(token, process.env.JWT_SECRET || 'myjwtsecret', (err, decoded) => {
-        if (err) {
-            return res.status(401).json({ message: 'Unauthorized' });
-        }
-        res.status(200).send('Welcome!');
-    });
-});
-
+// LOGOUT
 app.post('/api/logout', (req, res) => {
     res.clearCookie('auth_token', {
         httpOnly: true, 
+        secure: process.env.NODE_ENV === 'production',
+        sameSite: 'strict',
+    });
+    res.clearCookie('refresh_token', {
+        httpOnly: true,
         secure: process.env.NODE_ENV === 'production',
         sameSite: 'strict',
     });
@@ -148,6 +171,7 @@ app.post('/api/logout', (req, res) => {
     return res.status(200).json({ message: 'Logout successful' });
 });
 
+// SERVE STATIC FILES IN PRODUCTION
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static(path.join(__dirname, 'client/build')));
 
@@ -156,6 +180,7 @@ if (process.env.NODE_ENV === 'production') {
     });
 }
 
+// START SERVER
 app.listen(8081, () => {
     console.log("Server is running on port 8081...");
 });
