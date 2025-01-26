@@ -59,7 +59,7 @@ function Welcome() {
     <div className="background welcome d-flex flex-column align-items-center justify-content-center">
       <div className="form-group">
         <h1 className="mb-4">Welcome!</h1>
-        <span className="highlight">You have successfully logged in.</span> This page is currently under construction!
+        <span className="highlight">You have successfully logged in 🐪.</span> This page is currently under construction 🚧.
         <div className="d-grid gap-2 mt-3">
           <button className="btn btn-primary btn-lg" onClick={handleLogout}>Logout</button>
         </div>
