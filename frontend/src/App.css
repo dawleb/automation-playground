@@ -110,12 +110,17 @@ button#submit {
 }
 
 .footer .copyright {
-  font-size: 1rem;
+  font-size: 2rem;
   color: #333;
 }
 
 .footer span em {
   color: #004080;
+}
+
+.highlight {
+  color: #0056b3;
+  font-weight: bold;
 }
 
 @media (min-width: 768px) {

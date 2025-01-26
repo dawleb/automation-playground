@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
@@ -13,7 +13,14 @@ function Login() {
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const navigate = useNavigate();
-    
+
+    useEffect(() => {
+        const isLoggedIn = localStorage.getItem('isLoggedIn');
+        if (isLoggedIn) {
+            navigate('/welcome');
+        }
+    }, [navigate]);
+
     function handleSubmit(event) {
         event.preventDefault();
         console.log('Email:', email);
@@ -28,6 +35,7 @@ function Login() {
         .then(res => {
             console.log('Response:', res);
             if (res.status === 200 && res.data.message === "Login successful") {
+                localStorage.setItem('isLoggedIn', true);
                 navigate('/welcome');
             } else {
                 setError('Invalid email or password');
@@ -42,7 +50,7 @@ function Login() {
             }
         });
     }
-    
+
     return (
     <div className="d-flex justify-content-center align-items-center background">
         <div id="login">
@@ -75,8 +83,7 @@ function Login() {
             </div>
         </div>
     </div>
-    )
-
+    );
 }
 
 export default Login;
