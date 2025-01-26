@@ -20,11 +20,11 @@ function Welcome() {
         const data = await response.json();
 
         if (!data.isLoggedIn) {
-          navigate('/');
+          navigate('/login');
         }
       } catch (error) {
         console.error('Error checking session:', error);
-        navigate('/');
+        navigate('/login');
       }
     };
 
@@ -33,26 +33,26 @@ function Welcome() {
 
   const handleLogout = async () => {
     try {
-      const response = await fetch(`${API_URL}/logout`, {
-        method: 'POST',
-        credentials: 'include',
-      });
+        const response = await fetch(`${API_URL}/logout`, {
+            method: 'POST',
+            credentials: 'include',
+        });
 
-      if (!response.ok) {
-        throw new Error('Logout failed');
-      }
+        if (!response.ok) {
+            throw new Error('Logout failed');
+        }
 
-      const data = await response.json();
-      console.log('Logout successful:', data);
+        const data = await response.json();
+        console.log('Logout successful:', data);
 
-      sessionStorage.removeItem('isLoggedIn');
-      localStorage.removeItem('isLoggedIn');
-
-      navigate('/');
+        sessionStorage.removeItem('isLoggedIn');
+        localStorage.removeItem('isLoggedIn');
+        
+        navigate('/login');
     } catch (error) {
-      console.error('Logout error:', error);
+        console.error('Logout error:', error);
     }
-  };
+};
 
   return (
     <div className="background welcome d-flex flex-column align-items-center justify-content-center">

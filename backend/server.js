@@ -143,7 +143,6 @@ app.post('/api/logout', (req, res) => {
         httpOnly: true, 
         secure: process.env.NODE_ENV === 'production',
         sameSite: 'strict',
-        path: '/',
     });
 
     return res.status(200).json({ message: 'Logout successful' });
