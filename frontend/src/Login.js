@@ -3,10 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 import './App.css';
+import API_URL from './apiConfig';
 
-const API_URL = process.env.REACT_APP_BACKEND_URL
-    ? `${process.env.REACT_APP_BACKEND_URL}/api`
-    : "http://localhost:8081/api";
 
 function Login() {
     const [email, setEmail] = useState('');

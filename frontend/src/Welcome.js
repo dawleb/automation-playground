@@ -1,46 +1,59 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import API_URL from './apiConfig';
 
-const API_URL = process.env.REACT_APP_BACKEND_URL
-    ? `${process.env.REACT_APP_BACKEND_URL}/api`
-    : "http://localhost:8081/api";
 
 function Welcome() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`${API_URL}/session`, {
-      method: 'GET',
-      credentials: 'include',
-    })
-      .then(response => response.json())
-      .then(data => {
+    const checkSession = async () => {
+      try {
+        const response = await fetch(`${API_URL}/session`, {
+          method: 'GET',
+          credentials: 'include',
+        });
+
+        if (!response.ok) {
+          throw new Error('Session verification failed');
+        }
+
+        const data = await response.json();
+
         if (!data.isLoggedIn) {
           navigate('/');
         }
-      })
-      .catch(error => {
+      } catch (error) {
         console.error('Error checking session:', error);
         navigate('/');
-      });
+      }
+    };
+
+    checkSession();
   }, [navigate]);
 
-  function handleLogout() {
-    fetch(`${API_URL}/logout`, {
-      method: 'POST',
-      credentials: 'include',
-    })
-      .then(response => response.json())
-      .then(data => {
-        console.log('Logout successful:', data);
-        sessionStorage.removeItem('isLoggedIn');
-        localStorage.removeItem('isLoggedIn');
-        navigate('/');
-      })
-      .catch(error => {
-        console.error('Logout error:', error);
+  const handleLogout = async () => {
+    try {
+      const response = await fetch(`${API_URL}/logout`, {
+        method: 'POST',
+        credentials: 'include',
       });
-  }
+
+      if (!response.ok) {
+        throw new Error('Logout failed');
+      }
+
+      const data = await response.json();
+      console.log('Logout successful:', data);
+
+      sessionStorage.removeItem('isLoggedIn');
+      localStorage.removeItem('isLoggedIn');
+
+      navigate('/');
+    } catch (error) {
+      console.error('Logout error:', error);
+    }
+  };
 
   return (
     <div className="background welcome d-flex flex-column align-items-center justify-content-center">
