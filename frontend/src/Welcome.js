@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import API_URL from './apiConfig';
+import API_URL from './config';
 
 
 function Welcome() {
