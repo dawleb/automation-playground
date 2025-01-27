@@ -47,7 +47,7 @@ const createAccessToken = (user) => {
     return jwt.sign(
         { id: user.id, username: user.username },
         process.env.JWT_SECRET || 'myjwtsecret',
-        { expiresIn: '2m' }
+        { expiresIn: '15m' }
     );
 };
 

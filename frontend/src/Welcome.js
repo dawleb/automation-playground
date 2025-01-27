@@ -6,12 +6,10 @@ function Welcome() {
   const navigate = useNavigate();
 
   const clearAuthToken = () => {
-    document.cookie.split(';').forEach((cookie) => {
-      const eqPos = cookie.indexOf('=');
-      const name = eqPos > -1 ? cookie.substring(0, eqPos) : cookie;
+    const cookiesToClear = ['auth_token', 'refresh_token'];
+    cookiesToClear.forEach((name) => {
       document.cookie = `${name}=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/`;
     });
-
     localStorage.removeItem('isLoggedIn');
     console.log('Auth token cleared');
   };
@@ -53,7 +51,7 @@ function Welcome() {
 
     const intervalId = setInterval(() => {
       checkSession();
-    },1000);
+    }, 5000);
 
     return () => clearInterval(intervalId);
   }, [navigate]);
