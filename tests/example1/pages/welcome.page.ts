@@ -1,17 +1,17 @@
-import type { Page } from 'playwright';
-import { expect } from "@playwright/test";
+import type { Page } from 'playwright'
+import { expect } from '@playwright/test'
 
 export class WelcomePage {
-    readonly page: Page;
-    
-    constructor(page: Page) { 
-        this.page = page; 
-    } 
+  readonly page: Page
 
-    async isOpened(name: string) {
-        const element = this.page.getByRole('heading', { name });
+  constructor(page: Page) {
+    this.page = page
+  }
 
-        await expect(this.page).toHaveURL(/welcome/);
-        await expect(element).toBeVisible();
-    }
+  async isOpened(name: string) {
+    const element = this.page.getByRole('heading', { name })
+
+    await expect(this.page).toHaveURL(/welcome/)
+    await expect(element).toBeVisible()
+  }
 }

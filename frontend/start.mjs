@@ -1,5 +1,5 @@
-import serve from 'serve';
+import serve from "serve";
 
-const server = serve('build', {
-  port: 3000
+const server = serve("build", {
+  port: 3000,
 });

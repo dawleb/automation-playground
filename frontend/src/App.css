@@ -1,6 +1,6 @@
 .background {
   height: 100vh;
-  background-image: url('./assets/pyramid_background.jpg');
+  background-image: url("./assets/pyramid_background.jpg");
   background-size: cover;
   background-position: center;
   position: relative;
@@ -11,18 +11,18 @@
 }
 
 .welcome h1 {
-  color: #FFFAFA;
+  color: #fffafa;
   font-size: 3rem;
   margin: 0;
 }
 
 .welcome {
-  color: #FFFAFA;
-  text-align: 'center';
-  line-height: '100vh';
-  height: '100vh';
-  background-size: 'cover';
-  background-position: 'center';
+  color: #fffafa;
+  text-align: "center";
+  line-height: "100vh";
+  height: "100vh";
+  background-size: "cover";
+  background-position: "center";
 }
 
 #login {
@@ -53,7 +53,7 @@
   font-size: 1.6rem;
   color: #333;
   margin-bottom: 10px;
-  text-align: left; 
+  text-align: left;
 }
 
 input {
