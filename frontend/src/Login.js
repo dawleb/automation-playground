@@ -115,6 +115,7 @@ function Login() {
               placeholder="[Your Email]"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              data-qa="email-input"
             />
           </div>
           <div className="form-group">
@@ -128,10 +129,14 @@ function Login() {
               placeholder="[Your Password]"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              data-qa="password-input"
             />
           </div>
           <div className="d-grid gap-2 submit-btn">
-            <button className="btn btn-primary btn-lg" id="submit">
+            <button 
+              className="btn btn-primary btn-lg" 
+              id="submit" 
+              data-qa="submit-button">
               Login
             </button>
           </div>

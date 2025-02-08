@@ -4,6 +4,10 @@ export class LoginPage {
   readonly page: Page
 
   constructor(page: Page) {
+    this.username = page.locator('#email');
+    this.password = page.locator('#password');
+    this.submit = page.locator('#submit');
+
     this.page = page
   }
 
