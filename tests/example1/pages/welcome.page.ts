@@ -1,17 +1,35 @@
-import type { Page } from 'playwright'
-import { expect } from '@playwright/test'
+// import type { Page } from 'playwright'
+// import { expect } from '@playwright/test'
+
+// export class WelcomePage {
+//   readonly page: Page
+
+//   constructor(page: Page) {
+//     this.page = page
+//   }
+
+//   async isOpened(name: string) {
+//     const element = this.page.getByRole('heading', { name })
+
+//     await expect(this.page).toHaveURL(/welcome/)
+//     await expect(element).toBeVisible()
+//   }
+// }
+import type { Page } from 'playwright';
+import { expect } from "@playwright/test";
 
 export class WelcomePage {
-  readonly page: Page
+    readonly page: Page;
+    
+    constructor(page: Page) { 
+        this.page = page; 
+    } 
 
-  constructor(page: Page) {
-    this.page = page
-  }
+    async isOpened(text: string) {
+        const element = this.page.getByRole('heading', { name: 'Welcome!' });
 
-  async isOpened(name: string) {
-    const element = this.page.getByRole('heading', { name })
-
-    await expect(this.page).toHaveURL(/welcome/)
-    await expect(element).toBeVisible()
-  }
+        await expect(element).toHaveText(text);
+          await expect(this.page).toHaveURL(/welcome/);
+          await expect(element).toBeVisible();
+    }
 }
