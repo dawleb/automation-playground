@@ -1,15 +1,15 @@
-import type { Page } from 'playwright'; 
+import type { Page } from 'playwright';
 
-export class HomePage { 
-    readonly page: Page; 
+export class HomePage {
+  readonly page: Page;
 
-    constructor(page: Page) { 
-        this.page = page; 
-    } 
+  constructor(page: Page) {
+    this.page = page;
+  }
 
-    async open() { 
-        await this.page.goto("/");
-    }
+  async open() {
+    await this.page.goto('/');
+  }
 }
 // import type { Page } from 'playwright'
 

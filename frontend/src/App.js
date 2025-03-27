@@ -1,14 +1,14 @@
-import { createHashRouter, RouterProvider } from "react-router-dom";
-import Login from "./Login";
-import Welcome from "./Welcome";
-import { Navigate } from "react-router-dom";
+import { createHashRouter, RouterProvider } from 'react-router-dom';
+import Login from './Login';
+import Welcome from './Welcome';
+import { Navigate } from 'react-router-dom';
 
 const router = createHashRouter(
   [
-    { path: "/", element: <Navigate to="/login" replace /> },
-    { path: "/login", element: <Login /> },
-    { path: "/welcome", element: <Welcome /> },
-    { path: "*", element: <Login /> },
+    { path: '/', element: <Navigate to="/login" replace /> },
+    { path: '/login', element: <Login /> },
+    { path: '/welcome', element: <Welcome /> },
+    { path: '*', element: <Login /> },
   ],
   {
     future: {
@@ -22,9 +22,7 @@ const router = createHashRouter(
 );
 
 function App() {
-  return (
-    <RouterProvider future={{ v7_startTransition: true }} router={router} />
-  );
+  return <RouterProvider future={{ v7_startTransition: true }} router={router} />;
 }
 
 export default App;
