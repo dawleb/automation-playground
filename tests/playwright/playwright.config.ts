@@ -1,4 +1,11 @@
-import { defineConfig, devices } from '@playwright/test'
+import { defineConfig, devices } from '@playwright/test';
+import dotenv from 'dotenv';
+import path from 'path';
+
+// Read from the ".env" file and set 'development' as default.
+dotenv.config({
+  path: path.resolve(__dirname, 'core', 'env', `.env.${process.env.NODE_ENV || 'development'}`),
+});
 
 /**
  * Read environment variables from file.
@@ -44,8 +51,8 @@ export default defineConfig({
         // Emulates the user device.
         ...devices['iPhone 14 Pro'],
 
-        // Adds base url
-        baseURL: 'https://testing.byst.re/',
+        // Read base url from environment variable.
+        baseURL: process.env.BASE_URL,
       },
     },
     // {
@@ -66,4 +73,4 @@ export default defineConfig({
   //   url: 'http://127.0.0.1:3000',
   //   reuseExistingServer: !process.env.CI,
   // },
-})
+});

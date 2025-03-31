@@ -7,10 +7,15 @@ export class LoginPage {
     this.page = page;
   }
 
-  async doLogin(email: string, password: string) {
+  async doLogin() {
+    // Check if email and password environment variables are set.
+    if (!process.env.EMAIL || !process.env.PASSWORD) {
+      throw new Error('Email and password environment variables must be set');
+    }
+
     // Provide user credentials.
-    await this.page.fill('#email', email);
-    await this.page.fill('#password', password);
+    await this.page.fill('#email', process.env.EMAIL);
+    await this.page.fill('#password', process.env.PASSWORD);
 
     // Click the login button.
     await this.page.click('#submit');
