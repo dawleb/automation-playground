@@ -8,7 +8,7 @@
   "license": "ISC",
   "scripts": {
     "pretest": "eslint .",
-    "test": "cross-env NODE_ENV=testing playwright test --headed"
+    "test": "cross-env NODE_ENV=testing playwright test"
   },
   "devDependencies": {
     "@eslint/js": "^9.23.0",
@@ -18,9 +18,7 @@
     "eslint": "^9.23.0",
     "globals": "^16.0.0",
     "prettier": "3.5.3",
-    "typescript-eslint": "^8.28.0"
-  },
-  "dependencies": {
+    "typescript-eslint": "^8.28.0",
     "dotenv": "^16.4.7",
     "playwright": "^1.51.1"
   }
