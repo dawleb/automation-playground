@@ -8,6 +8,7 @@ export class HomePage {
   }
 
   async open() {
+    // Navigate to the page.
     await this.page.goto('/');
   }
 }

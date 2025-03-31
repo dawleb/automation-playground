@@ -25,11 +25,15 @@ export class WelcomePage {
     this.page = page;
   }
 
-  async isOpened(text: string) {
-    const element = this.page.getByRole('heading', { name: 'Welcome!' });
-
-    await expect(element).toHaveText(text);
+  async isOpened(heading: string) {
+    // Expect a title and heading to contain a welcome message.
     await expect(this.page).toHaveURL(/welcome/);
-    await expect(element).toBeVisible();
+    await expect(this.page.getByRole('heading', { name: heading })).toBeVisible();
   }
 }
+
+// const element = this.page.getByRole('heading', { name: 'Welcome!' });
+
+// await expect(element).toHaveText(text);
+// await expect(this.page).toHaveURL(/welcome/);
+// await expect(element).toBeVisible();

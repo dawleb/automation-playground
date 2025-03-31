@@ -8,8 +8,11 @@ export class LoginPage {
   }
 
   async doLogin(email: string, password: string) {
+    // Provide user credentials.
     await this.page.fill('#email', email);
     await this.page.fill('#password', password);
+
+    // Click the login button.
     await this.page.click('#submit');
   }
 }
