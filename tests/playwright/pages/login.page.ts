@@ -1,4 +1,5 @@
 import type { Page } from 'playwright';
+import { elements } from '../elements/login.elem';
 
 export class LoginPage {
   readonly page: Page;
@@ -14,11 +15,11 @@ export class LoginPage {
     }
 
     // Provide user credentials.
-    await this.page.fill('#email', process.env.EMAIL);
-    await this.page.fill('#password', process.env.PASSWORD);
+    await this.page.fill(elements.emailInput, process.env.EMAIL);
+    await this.page.fill(elements.passwordInput, process.env.PASSWORD);
 
     // Click the login button.
-    await this.page.click('#submit');
+    await this.page.click(elements.loginButton);
   }
 }
 

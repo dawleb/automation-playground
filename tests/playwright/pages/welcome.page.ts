@@ -17,6 +17,7 @@
 // }
 import { expect } from '@playwright/test';
 import type { Page } from 'playwright';
+import { elements } from '../elements/welcome.elem';
 
 export class WelcomePage {
   readonly page: Page;
@@ -25,10 +26,10 @@ export class WelcomePage {
     this.page = page;
   }
 
-  async isOpened(heading: string) {
+  async isOpened(text: string) {
     // Expect a title and heading to contain a welcome message.
     await expect(this.page).toHaveURL(/welcome/);
-    await expect(this.page.getByRole('heading', { name: heading })).toBeVisible();
+    await expect(this.page.locator(elements.mainHeading)).toHaveText(text);
   }
 }
 
@@ -37,3 +38,9 @@ export class WelcomePage {
 // await expect(element).toHaveText(text);
 // await expect(this.page).toHaveURL(/welcome/);
 // await expect(element).toBeVisible();
+
+// async isOpened(heading: string) {
+//   // Expect a title and heading to contain a welcome message.
+//   await expect(this.page).toHaveURL(/welcome/);
+//   await expect(this.page.getByRole('heading', { name: heading })).toBeVisible();
+// }
