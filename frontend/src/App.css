@@ -1,28 +1,99 @@
 .background {
   height: 100vh;
-  background-image: url("./assets/pyramid_background.jpg");
+  background-image: url('./assets/pyramid_background.jpg');
   background-size: cover;
   background-position: center;
   position: relative;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
   text-align: center;
 }
 
-.welcome h1 {
-  color: #fffafa;
-  font-size: 3rem;
-  margin: 0;
+.header-bar {
+  width: 100%;
+  background-color: rgba(244, 225, 178, 0.85);
+  color: black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  backdrop-filter: blur(5px);
+}
+
+.hello-text {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.header-buttons button {
+  margin-left: 10px;
+  padding: 12px 25px;
+  font-size: 1.4rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition:
+    background 0.3s ease,
+    transform 0.2s ease;
+}
+
+.header-buttons .logout-button {
+  color: white;
+  background-color: #d9534f;
+}
+
+.header-buttons .logout-button:hover {
+  background-color: #c9302c;
+  transform: scale(1.05);
+}
+
+.header-buttons .help-button {
+  color: white;
+  background-color: #5bc0de;
+}
+
+.header-buttons .help-button:hover {
+  background-color: #31b0d5;
+  transform: scale(1.05);
 }
 
 .welcome {
   color: #fffafa;
-  text-align: "center";
-  line-height: "100vh";
-  height: "100vh";
-  background-size: "cover";
-  background-position: "center";
+  text-align: center;
+  width: 100%;
+  padding-top: 80px;
+}
+
+.welcome-content {
+  margin-top: 80px;
+}
+
+.welcome h1 {
+  font-size: 3rem;
+}
+
+.highlight {
+  color: #0056b3;
+  font-weight: bold;
+}
+
+.welcome p {
+  font-size: 1.5rem;
+}
+
+.welcome {
+  color: #fffafa;
+  text-align: 'center';
+  line-height: '100vh';
+  height: '100vh';
+  background-size: 'cover';
+  background-position: 'center';
 }
 
 #login {

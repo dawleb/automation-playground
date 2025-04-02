@@ -1,9 +1,9 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
-import API_URL from './config';
+import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import '../App.css';
+import API_URL from '../config';
 
 function Login() {
   const [email, setEmail] = useState('');
@@ -66,19 +66,6 @@ function Login() {
       } else {
         setError('An error occurred. Please try again later.');
       }
-    }
-  };
-
-  const handleLogout = async () => {
-    try {
-      const res = await axios.post(`${API_URL}/logout`, {}, { withCredentials: true });
-      if (res.status === 200) {
-        console.log('Logout successful');
-        localStorage.removeItem('isLoggedIn');
-        navigate('/login');
-      }
-    } catch (error) {
-      console.error('Logout error:', error);
     }
   };
 

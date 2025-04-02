@@ -8,7 +8,8 @@
   "license": "ISC",
   "scripts": {
     "pretest": "eslint .",
-    "test": "cross-env NODE_ENV=testing playwright test"
+    "test": "cross-env NODE_ENV=testing playwright test",
+    "local": "cross-env NODE_ENV=local playwright test --headed"
   },
   "devDependencies": {
     "@eslint/js": "^9.23.0",
