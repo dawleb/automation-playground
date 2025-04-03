@@ -39,13 +39,20 @@ function Header() {
 
   return (
     <div className="header-bar">
-      <span className="hello-text">Hello Student!</span>
+      <span className="hello-text" id="welcome" data-qa="welcome-text">
+        Hello Quality Engineer!
+      </span>
       <div className="header-buttons">
-        <button className="logout-button" onClick={handleLogout}>
-          Logout
-        </button>
-        <button className="help-button" onClick={handleHelp}>
+        <button className="help-button" id="help" data-qa="help-button" onClick={handleHelp}>
           Help
+        </button>
+        <button
+          className="logout-button"
+          id="logout"
+          data-qa="logout-button"
+          onClick={handleLogout}
+        >
+          Logout
         </button>
       </div>
     </div>

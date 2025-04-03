@@ -2,7 +2,7 @@ import type { Page } from 'playwright';
 import { elements } from '../elements/login.elem';
 
 export class LoginPage {
-  readonly page: Page;
+  private readonly page: Page;
 
   constructor(page: Page) {
     this.page = page;
