@@ -4,8 +4,8 @@ import { elements } from '../elements/welcome.elem';
 import { Header } from './header.comp.ts';
 
 export class WelcomePage {
-  private readonly page: Page;
-  private readonly header: Header;
+  readonly page: Page;
+  readonly header: Header;
 
   constructor(page: Page) {
     this.page = page;

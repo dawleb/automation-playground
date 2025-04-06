@@ -1,0 +1,35 @@
+{
+  "cookies": [
+    {
+      "name": "auth_token",
+      "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwidXNlcm5hbWUiOiJzdHVkZW50QGV4YW1wbGUuY29tIiwiaWF0IjoxNzQzOTQ0ODQzLCJleHAiOjE3NDM5NDU3NDN9.YJuE-NjlvGGNZ8M-AukH1P0XmLQvXsyn-nPmlbzpWLk",
+      "domain": "testing.byst.re",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "Strict"
+    },
+    {
+      "name": "refresh_token",
+      "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwidXNlcm5hbWUiOiJzdHVkZW50QGV4YW1wbGUuY29tIiwiaWF0IjoxNzQzOTQ0ODQzLCJleHAiOjE3NDQ1NDk2NDN9.jlVy0m0X5x04uGpCokTUcU-hjdQj_X0tpWUkzlsHv5A",
+      "domain": "testing.byst.re",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "Strict"
+    }
+  ],
+  "origins": [
+    {
+      "origin": "https://testing.byst.re",
+      "localStorage": [
+        {
+          "name": "isLoggedIn",
+          "value": "true"
+        }
+      ]
+    }
+  ]
+}

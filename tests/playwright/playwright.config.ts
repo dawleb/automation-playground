@@ -4,7 +4,7 @@ import path from 'path';
 
 // Read from the ".env" file and set 'development' as default.
 dotenv.config({
-  path: path.resolve(__dirname, 'core', 'env', `.env.${process.env.NODE_ENV || 'development'}`),
+  path: path.resolve(__dirname, '.env', `.env.${process.env.NODE_ENV || 'development'}`),
 });
 
 /**
@@ -39,9 +39,21 @@ export default defineConfig({
 
   /* Configure projects for major browsers */
   projects: [
+    // Setup project
+    {
+      name: 'setup',
+      use: {
+        baseURL: process.env.BASE_URL,
+      },
+      testMatch: /.*\.setup\.ts/,
+    },
+
     {
       name: 'Mobile Safari',
       use: {
+        // Use prepared auth state.
+        storageState: './.auth/user.json',
+
         // Emulates the user locale.
         locale: 'en-GB',
 
@@ -54,6 +66,7 @@ export default defineConfig({
         // Read base url from environment variable.
         baseURL: process.env.BASE_URL,
       },
+      dependencies: ['setup'],
     },
     // {
     //   name: 'chromium',

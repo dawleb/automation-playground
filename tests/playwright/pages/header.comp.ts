@@ -4,7 +4,6 @@ import { elements } from '../elements/header.elem';
 export class Header {
   private readonly page: Page;
 
-  // Constructor to initialize the component
   constructor(page: Page) {
     this.page = page;
   }
