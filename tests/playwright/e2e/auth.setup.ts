@@ -10,5 +10,6 @@ setup('should successfully log in', async ({ homePage, loginPage, page }) => {
 
   await expect(page).toHaveURL(/welcome/);
 
+  // Saves auth state for subsequent tests.
   await page.context().storageState({ path: authFile });
 });
