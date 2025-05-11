@@ -23,3 +23,21 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+Cypress.Commands.add('doLogin', (email: string, password: string) => {
+  cy.get('#email').type(email);
+  cy.get('#password').type(password);
+  cy.get('#submit').click();
+});
+
+Cypress.Commands.add('visitPage', (fragment: string) => {
+  cy.visit(`${Cypress.env('BASE_URL')}#/${fragment}`);
+});
+
+// // Dodajemy przestrzeń nazw do cy
+// // @ts-ignore — tymczasowe obejście błędu TS
+// cy.login = {
+//   doLogin: (email: string, password: string) => {
+//     cy.doLogin(email, password);
+//   },
+// };

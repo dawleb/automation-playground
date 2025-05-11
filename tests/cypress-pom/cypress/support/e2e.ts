@@ -14,8 +14,7 @@
 // ***********************************************************
 
 // Import commands.js using ES2015 syntax:
-import './commands';
-import './login';
+import './commands/login';
 
 // cypress/support/index.ts
 Cypress.Commands.add('dataCy', value => {

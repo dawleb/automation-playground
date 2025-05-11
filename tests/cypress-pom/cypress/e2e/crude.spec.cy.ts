@@ -10,17 +10,12 @@ describe('Login Test', () => {
     // Navigate to the login page
     cy.visit(`${Cypress.env('BASE_URL')}#/login`);
 
-    const username = Cypress.env('EMAIL');
-    const password = Cypress.env('PASSWORD');
+    // Fill in the email and password fields
+    cy.get('#email').type(Cypress.env('EMAIL'));
+    cy.get('#password').type(Cypress.env('PASSWORD'));
 
-    cy.doLogin(username, password);
-
-    // // Fill in the email and password fields
-    // cy.get('#email').type(Cypress.env('EMAIL'));
-    // cy.get('#password').type(Cypress.env('PASSWORD'));
-
-    // // Click the submit button to attempt login
-    // cy.get('#submit').click();
+    // Click the submit button to attempt login
+    cy.get('#submit').click();
 
     // Assert that the URL includes '/welcome' after login
     cy.url().should('include', '/welcome');

@@ -11,6 +11,12 @@ declare global {
       dataCy(value: string): Chainable<JQuery<HTMLElement>>;
 
       /**
+       * Custom command to visit a specific hash-based page
+       * @example cy.visitPage('login')
+       */
+      visitPage(hash: string): Chainable<void>;
+
+      /**
        * Custom command to perform login
        * @example cy.doLogin('user@example.com', 'password')
        */
