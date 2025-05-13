@@ -3,12 +3,12 @@ import { getCredentials } from '../support/utils/auth';
 // Test suite for login functionality
 describe('Login Test', () => {
   // Test case to check successful login
-  it('should successfully log in', () => {
+  it.only('should successfully log in', () => {
     // Arrange: prepare test data
     const { email, password } = getCredentials();
 
     // Act: perform login flow
-    cy.visitPage('#/login');
+    cy.visitPage('login');
     cy.doLogin(email, password);
 
     // Assert: verify successful login
@@ -27,7 +27,7 @@ describe('Login Test', () => {
     }).as('loginRequest');
 
     // Act: perform login flow
-    cy.visitPage('#/login');
+    cy.visitPage('login');
     cy.doLogin(email, password);
 
     cy.wait('@loginRequest');
@@ -38,8 +38,9 @@ describe('Login Test', () => {
 
   it('should log in via cypress actions', () => {
     const { email, password } = getCredentials();
+    cy.visitPage('login');
 
-    // Programmatically logs in the usery
+    // Programmatically logs in using app action
     cy.window().its('login').invoke('call', null, email, password);
 
     cy.contains('Welcome').should('exist');
