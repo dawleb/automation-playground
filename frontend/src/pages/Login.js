@@ -77,29 +77,28 @@ function Login() {
     );
   }
 
-  // Cyoress app actions login
-    window.login = async (email, password) => {
-      const res = await fetch(`${API_URL}/login`, {
-        method: 'POST',
-        credentials: 'include',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email, password }),
-      });
+  // Cypress app actions login
+  window.login = async (email, password) => {
+    const res = await fetch(`${API_URL}/login`, {
+      method: 'POST',
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email, password }),
+    });
 
-      if (!res.ok) {
-        throw new Error('Login failed');
-      }
+    if (!res.ok) {
+      throw new Error('Login failed');
+    }
 
-      const data = await res.json();
-      localStorage.setItem('isLoggedIn', 'true');
+    const data = await res.json();
+    localStorage.setItem('isLoggedIn', 'true');
 
-      window.location.hash = '#/welcome';
+    window.location.hash = '#/welcome';
 
-      return data;
-    };
-  }
+    return data;
+  };
 
   return (
     <div className="d-flex justify-content-center align-items-center vh-100 background">
