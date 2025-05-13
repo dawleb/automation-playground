@@ -35,4 +35,13 @@ describe('Login Test', () => {
     // Assert: verify error message
     cy.contains(errorMessage).should('be.visible');
   });
+
+  it('should log in via cypress actions', () => {
+    const { email, password } = getCredentials();
+
+    // Programmatically logs in the usery
+    cy.window().its('login').invoke('call', null, email, password);
+
+    cy.contains('Welcome').should('exist');
+  });
 });
