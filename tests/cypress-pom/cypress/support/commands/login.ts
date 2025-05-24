@@ -24,10 +24,25 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
+Cypress.Commands.add('dataQA', (value: string) => {
+  return cy.get(`[data-qa="${value}"]`);
+});
+
 Cypress.Commands.add('doLogin', (email: string, password: string) => {
-  cy.get('#email').type(email);
-  cy.get('#password').type(password);
-  cy.get('#submit').click();
+  cy.dataQA('email-input').type(email);
+  cy.dataQA('password-input').type(password);
+  cy.dataQA('submit-button').click();
+});
+
+Cypress.Commands.add('apiLogin', (email, password) => {
+  cy.request({
+    method: 'POST',
+    url: Cypress.env('API_URL'),
+    body: { email, password },
+  }).then(response => {
+    expect(response.status).to.eq(200);
+    expect(response.body.message).to.equal('Login successful');
+  });
 });
 
 Cypress.Commands.add('visitPage', (fragment: string) => {

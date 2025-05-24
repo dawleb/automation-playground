@@ -6,9 +6,9 @@ declare global {
     interface Chainable {
       /**
        * Custom command to select DOM element by data-cy attribute.
-       * @example cy.dataCy('greeting')
+       * @example cy.dataCy('login-button')
        */
-      dataCy(value: string): Chainable<JQuery<HTMLElement>>;
+      dataQA(value: string): Chainable<JQuery<HTMLElement>>;
 
       /**
        * Custom command to visit a specific hash-based page
@@ -21,6 +21,13 @@ declare global {
        * @example cy.doLogin('user@example.com', 'password')
        */
       doLogin(email: string, password: string): Chainable<void>;
+
+      /**
+       * Custom command to log in via API.
+       * @param email - User's email
+       * @param password - User's password
+       */
+      apiLogin(email: string, password: string): Chainable<void>;
     }
   }
 }
