@@ -1,11 +1,12 @@
 import type { Page } from 'playwright';
 import { elements } from '../elements/header.elem';
+import { BasePage } from './base.page';
 
-export class Header {
-  private readonly page: Page;
-
+// 1 We have extended form base class
+export class Header extends BasePage {
+  // 1 We have called super cunstructor
   constructor(page: Page) {
-    this.page = page;
+    super(page);
   }
 
   // Method to check if all the header elements are visible
@@ -31,12 +32,17 @@ export class Header {
     await this.page.locator(elements.logoutButton).click();
   }
 
-  // Method to retrieve the text content of the Welcome message
-  async getWelcomeText(): Promise<string> {
-    const text = await this.page.locator(elements.welcomeText).textContent();
-    if (!text) {
-      throw new Error('Welcome text is empty or not found');
-    }
-    return text;
+  // 1We have added getter method
+  getWelcomeText(): string {
+    return elements.welcomeText;
   }
+
+  // Method to retrieve the text content of the Welcome message
+  // async getWelcomeText(): Promise<string> {
+  //   const text = await this.getText(elements.welcomeText);
+  //   if (!text) {
+  //     throw new Error('Welcome text is empty or not found');
+  //   }
+  //   return text;
+  // }
 }
