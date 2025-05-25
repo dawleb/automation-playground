@@ -2,9 +2,9 @@ import type { Page } from 'playwright';
 import { elements } from '../elements/header.elem';
 import { BasePage } from './base.page';
 
-// 1 We have extended form base class
+// Extends the BasePage class to inherit common page methods
 export class Header extends BasePage {
-  // 1 We have called super cunstructor
+  // Calls the parent constructor to initialize the page context
   constructor(page: Page) {
     super(page);
   }
@@ -32,7 +32,7 @@ export class Header extends BasePage {
     await this.page.locator(elements.logoutButton).click();
   }
 
-  // 1We have added getter method
+  // Returns the welcome text from the page
   getWelcomeText(): string {
     return elements.welcomeText;
   }
