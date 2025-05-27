@@ -18,7 +18,7 @@ test('should verify welcome page elements after login', async ({ homePage, welco
 
   // Assert the welcome message
   const header = welcomePage.getHeader();
-  const welcomeText = await header.getText(header.getWelcomeText());
+  const welcomeText = await header.getWelcomeText();
   expect(welcomeText).toBe('Hello Quality Engineer!');
 
   // Assert the order of buttons

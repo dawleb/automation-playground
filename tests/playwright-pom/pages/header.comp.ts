@@ -32,9 +32,13 @@ export class Header extends BasePage {
     await this.page.locator(elements.logoutButton).click();
   }
 
+  // getWelcomeText(): string {
+  //   return elements.welcomeText;
+  // }
+
   // Returns the welcome text from the page
-  getWelcomeText(): string {
-    return elements.welcomeText;
+  async getWelcomeText(): Promise<string> {
+    return this.getText(elements.welcomeText);
   }
 
   // Method to retrieve the text content of the Welcome message
