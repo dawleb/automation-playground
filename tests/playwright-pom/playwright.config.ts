@@ -3,6 +3,11 @@ import dotenv from 'dotenv';
 import path from 'path';
 
 // Read from the ".env" file and set 'development' as default.
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 dotenv.config({
   path: path.resolve(__dirname, '.env', `.env.${process.env.NODE_ENV || 'development'}`),
 });

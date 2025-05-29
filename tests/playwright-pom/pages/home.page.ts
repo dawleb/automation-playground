@@ -8,7 +8,7 @@ export class HomePage {
   }
 
   // Navigate to the root page.
-  async open() {
-    await this.page.goto('/');
+  async open(url: string = '') {
+    await this.page.goto(`${url}/`);
   }
 }

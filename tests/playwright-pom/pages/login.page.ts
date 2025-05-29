@@ -1,5 +1,5 @@
 import type { Page } from 'playwright';
-import { elements } from '../elements/login.elem';
+import { elements } from '../elements/login.elem.ts';
 
 export class LoginPage {
   private readonly page: Page;

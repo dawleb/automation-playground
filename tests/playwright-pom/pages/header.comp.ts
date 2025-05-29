@@ -1,6 +1,6 @@
 import type { Page } from 'playwright';
-import { elements } from '../elements/header.elem';
-import { BasePage } from './base.page';
+import { elements } from '../elements/header.elem.ts';
+import { BasePage } from './base.page.ts';
 
 // Extends the BasePage class to inherit common page methods
 export class Header extends BasePage {

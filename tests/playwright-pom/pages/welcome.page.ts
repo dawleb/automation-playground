@@ -1,6 +1,6 @@
 // import { expect } from '@playwright/test';
 import type { Page } from 'playwright';
-import { elements } from '../elements/welcome.elem';
+import { elements } from '../elements/welcome.elem.ts';
 import { Header } from './header.comp.ts';
 import { BasePage } from './base.page.ts';
 
