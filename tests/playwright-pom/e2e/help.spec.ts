@@ -1,4 +1,4 @@
-import { test, expect } from '../fixtures/base-test';
+import { test, expect } from '../fixtures/base-test.ts';
 
 test('should navigate to help page', async ({ homePage, welcomePage, helpPage }) => {
   await homePage.open();

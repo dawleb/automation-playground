@@ -1,6 +1,7 @@
 {
   "default": {
     "paths": ["cucumber/features/**/*.feature"],
+    "import": ["cucumber/steps/**/*.ts"],
     "formatOptions": {
       "snippetInterface": "async-await"
     },

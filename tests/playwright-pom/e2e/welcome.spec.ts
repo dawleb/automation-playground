@@ -1,4 +1,4 @@
-import { test, expect } from '../fixtures/base-test';
+import { test, expect } from '../fixtures/base-test.ts';
 
 test('should verify welcome page elements after login', async ({ homePage, welcomePage, page }) => {
   // Navigate to home page

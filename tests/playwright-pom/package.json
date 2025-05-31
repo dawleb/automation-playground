@@ -10,7 +10,7 @@
   "scripts": {
     "pretest": "eslint .",
     "playwright": "cross-env NODE_ENV=testing playwright test",
-    "cucumber": "cross-env NODE_ENV=testing NODE_OPTIONS=--loader=ts-node/esm cucumber-js cucumber/features/**/*.feature --import cucumber/steps/**/*.ts --exit",
+    "cucumber": "cross-env NODE_ENV=testing NODE_OPTIONS=--loader=ts-node/esm cucumber-js",
     "local": "cross-env NODE_ENV=local playwright test --headed"
   },
   "devDependencies": {

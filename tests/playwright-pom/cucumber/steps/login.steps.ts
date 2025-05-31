@@ -1,8 +1,4 @@
 import { Given, When, Then } from '@cucumber/cucumber';
-// import Cucumber from '@cucumber/cucumber';
-// const { Given, When, Then } = Cucumber;
-
-// const { Given, When, Then } = require('@cucumber/cucumber');
 
 import { expect, chromium, Page, Browser, BrowserContext } from '@playwright/test';
 import { HomePage } from '../../pages/home.page.ts';
