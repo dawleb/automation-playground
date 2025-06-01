@@ -1,7 +1,7 @@
 {
   "type": "module",
   "scripts": {
-    "test": "cross-env NODE_ENV=testing NODE_OPTIONS=--loader=ts-node/esm npx bddgen && npx playwright test ",
+    "bdd": "cross-env NODE_ENV=testing NODE_OPTIONS=--loader=ts-node/esm npx bddgen && npx playwright test ",
     "report": "npx http-server ./cucumber-report -c-1 -a localhost -o index.html"
   },
   "devDependencies": {

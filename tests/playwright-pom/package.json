@@ -11,6 +11,7 @@
     "pretest": "eslint .",
     "playwright": "cross-env NODE_ENV=testing playwright test",
     "cucumber": "cross-env NODE_ENV=testing NODE_OPTIONS=--loader=ts-node/esm cucumber-js",
+    "bdd": "cross-env NODE_ENV=testing NODE_OPTIONS=--loader=ts-node/esm npx bddgen && npx playwright test ",
     "local": "cross-env NODE_ENV=local playwright test --headed"
   },
   "devDependencies": {
@@ -23,6 +24,7 @@
     "eslint": "^9.23.0",
     "globals": "^16.0.0",
     "playwright": "^1.51.1",
+    "playwright-bdd": "^8.2.1",
     "prettier": "3.5.3",
     "ts-node": "^10.9.2",
     "typescript-eslint": "^8.28.0"
