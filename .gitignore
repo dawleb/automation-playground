@@ -1,2 +1,4 @@
 node_modules/
 .vscode/
+.features-gen
+cucumber-report
