@@ -11,5 +11,5 @@
     "allowImportingTsExtensions": true,
     "baseUrl": "."
   },
-  "include": ["cucumber/steps/**/*.ts", "bdd/steps/**/*.ts", "pages/**/*.ts"]
+  "include": ["**/*.ts", "playwright.config.ts"]
 }

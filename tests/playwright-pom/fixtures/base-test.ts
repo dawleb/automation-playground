@@ -1,8 +1,8 @@
 import { test as base } from '@playwright/test';
-import { HomePage } from '../pages/home.page';
-import { LoginPage } from '../pages/login.page';
-import { WelcomePage } from '../pages/welcome.page';
-import { HelpPage } from '../pages/help.page';
+import { HomePage } from '../pages/home.page.ts';
+import { LoginPage } from '../pages/login.page.ts';
+import { WelcomePage } from '../pages/welcome.page.ts';
+import { HelpPage } from '../pages/help.page.ts';
 
 interface PageObjects {
   loginPage: LoginPage;
