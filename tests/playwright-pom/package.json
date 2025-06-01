@@ -9,9 +9,9 @@
   "license": "ISC",
   "scripts": {
     "pretest": "eslint .",
-    "playwright": "cross-env NODE_ENV=testing playwright test",
+    "playwright": "cross-env NODE_ENV=testing playwright test --project=classic",
     "cucumber": "cross-env NODE_ENV=testing NODE_OPTIONS=--loader=ts-node/esm cucumber-js",
-    "bdd": "cross-env NODE_ENV=testing NODE_OPTIONS=--loader=ts-node/esm npx bddgen && npx playwright test ",
+    "bdd": "cross-env NODE_ENV=testing NODE_OPTIONS=--loader=ts-node/esm npx bddgen && npx playwright test --project=bdd",
     "local": "cross-env NODE_ENV=local playwright test --headed"
   },
   "devDependencies": {
