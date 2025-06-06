@@ -22,7 +22,7 @@ export default defineConfig({
   testDir: './e2e',
 
   projects: [
-    // Setup project: prepares baseURL and loing state for other tests
+    // Setup project: prepares baseURL and loading state for other tests
     {
       name: 'setup',
       use: {

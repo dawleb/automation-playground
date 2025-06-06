@@ -1,6 +1,8 @@
-node_modules/
+/node_modules/
 /test-results/
 /playwright-report/
 /blob-report/
+/cucumber-report/
 .cache/
 .auth/
+.features-gen/

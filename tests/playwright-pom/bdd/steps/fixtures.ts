@@ -3,10 +3,8 @@ import { LoginPage } from '../../pages/login.page.ts';
 import { HomePage } from '../../pages/home.page.ts';
 import { WelcomePage } from '../../pages/welcome.page.ts';
 import { HelpPage } from '../../pages/help.page.ts';
-// import { Page } from 'playwright-bdd';
 
 type Fixtures = {
-  // page: Page;
   loginPage: LoginPage;
   homePage: HomePage;
   welcomePage: WelcomePage;

@@ -5,8 +5,8 @@ declare global {
   namespace Cypress {
     interface Chainable {
       /**
-       * Custom command to select DOM element by data-cy attribute.
-       * @example cy.dataCy('login-button')
+       * Custom command to select DOM element by data-qa attribute.
+       * @example cy.dataQA('login-button')
        */
       dataQA(value: string): Chainable<JQuery<HTMLElement>>;
 

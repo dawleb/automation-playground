@@ -4,6 +4,18 @@ import { getCredentials } from '../../support/utils/auth';
 describe('Login Test', () => {
   // Test case to check successful login
   it('should log in successfully via the GUI', () => {
+
+
+
+
+
+
+
+
+
+
+
+
     // Arrange: prepare test data
     const { email, password } = getCredentials();
 
@@ -17,6 +29,7 @@ describe('Login Test', () => {
   });
 
   it('should show error message on 500 server error', () => {
+    
     // Arrange: prepare test data, error message and mocks
     const { email, password } = getCredentials();
     const errorMessage = 'An error occurred. Please try again later';
