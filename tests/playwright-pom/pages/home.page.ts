@@ -1,4 +1,5 @@
 import type { Page } from 'playwright';
+import { env } from 'process';
 
 export class HomePage {
   private readonly page: Page;
@@ -8,7 +9,7 @@ export class HomePage {
   }
 
   // Navigate to the root page.
-  async open(url: string = '') {
+  async open(url: string = env.BASE_URL || '') {
     await this.page.goto(`${url}/`);
   }
 }

@@ -18,7 +18,7 @@ Given('I am on the login page', async function () {
   homePage = new HomePage(page);
   loginPage = new LoginPage(page);
 
-  await homePage.open(process.env.BASE_URL);
+  await homePage.open();
 });
 
 When('I enter valid credentials', async function () {
