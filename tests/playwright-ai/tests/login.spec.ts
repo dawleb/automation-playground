@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test';
 
+
 test('login and verify welcome page', async ({ page }) => {
   // 1. Navigate to login page
   await page.goto('https://testing.byst.re/#/login');

@@ -11,6 +11,7 @@
     "@cypress/webpack-preprocessor": "^6.0.4",
     "esbuild": "^0.25.4",
     "ts-loader": "^9.5.2",
-    "typescript": "^5.8.3"
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2"
   }
 }
