@@ -4,7 +4,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "cross-env NODE_ENV=testing npx playwright test --headed"
+    "test": "cross-env NODE_ENV=testing playwright test --headed"
   },
   "keywords": [],
   "author": "",
