@@ -1,18 +1,19 @@
 import { defineConfig, devices } from '@playwright/test';
-/* Configure projects for major browsers */ export default defineConfig({
+
+export default defineConfig({
+  testDir: './tests',
+  fullyParallel: true,
+  reporter: 'html',
+  use: {
+    headless: false,
+    viewport: { width: 1280, height: 720 },
+    ignoreHTTPSErrors: true,
+    baseURL: 'https://testing.byst.re/',
+  },
   projects: [
     {
-      name: 'Mobile Safari',
-      use: {
-        // Emulates the user locale.
-        locale: 'en-GB',
-        // Emulates the user timezone.
-        timezoneId: 'Europe/London',
-        // Emulates the user device.
-        ...devices['iPhone 14 Pro'],
-        // Adds base url
-        baseURL: 'https://testing.byst.re/',
-      },
+      name: 'chromium',
+      use: { ...devices['Desktop Chrome'] },
     },
   ],
 });
