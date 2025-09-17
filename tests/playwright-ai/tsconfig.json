@@ -9,5 +9,6 @@
       "forceConsistentCasingInFileNames": true,
       "noEmit": true,
       "allowImportingTsExtensions": true
-    }
+    },
+    "include": ["pages/**/*.ts" ]
 }
