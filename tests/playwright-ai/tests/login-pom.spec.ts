@@ -1,6 +1,6 @@
-import { test } from '@playwright/test';
+import { expect, test } from '@playwright/test';
 import { LoginPage } from '../pages/login.page';
-import { WelcomePage } from '../pages/sfsdfsde.page';
+import { WelcomePage } from '../pages/welcome.page';
 
 test('login and verify welcome page', async ({ page }) => {
   const loginPage = new LoginPage(page);
@@ -13,5 +13,7 @@ test('login and verify welcome page', async ({ page }) => {
   await loginPage.login('student@example.com', 'Test123!');
 
   // 3. Verify welcome page
-  await welcomePage.verifyWelcomePage();
+  // await welcomePage.verifyWelcomePage();
+    await expect(page).toHaveURL(/\/welcome$/);
+    await expect(page.locator('h1')).toHaveText('Welcome!');
 });
