@@ -1,4 +1,5 @@
 import { Page } from '@playwright/test';
+import { EMAIL, PASSWORD } from '../.auth/credentials.ts';
 
 export class LoginPage {
   constructor(private page: Page) {}
@@ -7,9 +8,9 @@ export class LoginPage {
     await this.page.goto('https://testing.byst.re/#/login');
   }
 
-  async login(email: string, password: string) {
-    await this.page.getByRole('textbox', { name: 'Enter Email' }).fill(email);
-    await this.page.getByRole('textbox', { name: 'Enter Password' }).fill(password);
+  async doLogin() {
+    await this.page.getByRole('textbox', { name: 'Enter Email' }).fill(EMAIL);
+    await this.page.getByRole('textbox', { name: 'Enter Password' }).fill(PASSWORD);
     await this.page.getByRole('button', { name: 'Login' }).click();
   }
 }

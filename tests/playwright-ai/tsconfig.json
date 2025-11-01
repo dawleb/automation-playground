@@ -10,5 +10,5 @@
       "noEmit": true,
       "allowImportingTsExtensions": true
     },
-    "include": ["pages/**/*.ts" ]
+    "include": ["pages/**/*.ts", "tests/auth.setup.ts" ]
 }
