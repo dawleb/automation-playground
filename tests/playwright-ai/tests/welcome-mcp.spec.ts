@@ -11,9 +11,19 @@ test.describe('Welcome page @mcp', () => {
       await login.goto();
     });
 
-    await test.step('Perform login', async () => {
-      await login.doLogin();
-    });
+    // If the test is already starting with an authenticated session (storageState), the app
+    // may redirect straight to the welcome page. Detect that and skip login if already logged-in.
+    const alreadyLoggedIn = await page.getByRole('heading', { name: 'Welcome!' }).isVisible();
+
+    if (!alreadyLoggedIn) {
+      await test.step('Perform login', async () => {
+        await login.doLogin();
+      });
+    } else {
+      await test.step('Skip login because session is present', async () => {
+        // noop - session already authenticated
+      });
+    }
 
     await test.step('Validate welcome page elements using POM', async () => {
       await welcome.verifyPage();

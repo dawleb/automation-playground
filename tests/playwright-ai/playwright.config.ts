@@ -1,8 +1,6 @@
 import { defineConfig, devices } from '@playwright/test';
 
 const BASE_URL = 'https://testing.byst.re/'
-const USERNAME = '1@1.com'
-const PASSWORD = '2!'
 
 export default defineConfig({
   testDir: './tests',
@@ -20,10 +18,6 @@ export default defineConfig({
       name: 'setup',
       use: {
         baseURL: BASE_URL,
-        // httpCredentials: {
-        //   username: USERNAME,
-        //   password: PASSWORD,
-        // },
       },
       testMatch: /.*\.setup\.ts/,
     },

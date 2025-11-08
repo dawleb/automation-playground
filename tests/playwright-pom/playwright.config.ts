@@ -62,6 +62,6 @@ export default defineConfig({
   ],
   use: {
     screenshot: 'on', // Capture screenshots on failure
-    trace: 'on-first-retry', // Collect trace on first retry
+    trace: 'on', // Collect trace every time
   },
 });
