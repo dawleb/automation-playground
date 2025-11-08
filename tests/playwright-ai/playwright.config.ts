@@ -42,5 +42,14 @@ export default defineConfig({
         baseURL: BASE_URL,
       },
     },
+    // Add a non-authenticated desktop Chromium project for tests that must start unauthenticated
+    {
+      name: 'chromium',
+      use: {
+        ...devices['Desktop Chrome'],
+        baseURL: BASE_URL,
+        headless: false,
+      },
+    },
   ],
 });
