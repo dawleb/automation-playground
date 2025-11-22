@@ -2,4 +2,5 @@
 /test-results/
 /playwright-report/
 /blob-report/
-/cucumber-report/
+/.playwright-mcp/
+/.vscode/secrets.env

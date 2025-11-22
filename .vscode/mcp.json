@@ -3,8 +3,14 @@
 		"playwright": {
 			"type": "stdio",
 			"command": "npx",
-			"args": []
-		}
+			"args": [
+				"@playwright/mcp@latest",
+                "--secrets=.vscode/secrets.env",
+				"--config=.vscode/config.json",
+                "--init-page=.vscode/init-page.ts",
+				"--init-script=.vscode/init-script.js"
+			]
+		},
 	},
 	"inputs": []
 }

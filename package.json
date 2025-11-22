@@ -9,6 +9,7 @@
     "@badeball/cypress-cucumber-preprocessor": "^22.0.1",
     "@bahmutov/cypress-esbuild-preprocessor": "^2.2.5",
     "@cypress/webpack-preprocessor": "^6.0.4",
+    "@playwright/test": "^1.56.1",
     "esbuild": "^0.25.4",
     "ts-loader": "^9.5.2",
     "ts-node": "^10.9.2",

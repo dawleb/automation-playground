@@ -1,10 +1,20 @@
 {
-    "servers": {
-        "playwright": {
-            "command": "npx",
-            "args": [
-                "@playwright/mcp@latest"
-            ]
-        }
-    }
+	"servers": {
+		"playwright-1": {
+			"type": "stdio",
+			"command": "npx",
+			"args": [
+				"@playwright/mcp@latest",
+        		"--secrets=.vscode/secrets.env",
+				"--config=.vscode/config.json",
+        		"--init-page=.vscode/block.ts"
+			]
+		},
+		"playwright-2": {
+			"url": "http://localhost:8931/mcp",
+			"type": "http",
+    
+		}
+	},
+	"inputs": []
 }
