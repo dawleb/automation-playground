@@ -15,12 +15,25 @@ const app = express();
 app.use(express.json());
 app.use(cookieParser());
 
+const allowedOrigins = [
+  "https://develop.byst.re",
+  "https://testing.byst.re",
+  "https://staging.byst.re",
+];
+
 app.use(
   cors({
-    origin: process.env.REACT_APP_BACKEND_URL || 'http://localhost:3000',
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    origin: function (origin, callback) {
+      if (!origin) return callback(null, true);
+
+      if (allowedOrigins.includes(origin)) {
+        return callback(null, true);
+      } else {
+        return callback(new Error("Not allowed by CORS"));
+      }
+    },
     credentials: true,
-  }),
+  })
 );
 
 const db = mysql.createPool({
@@ -84,15 +97,15 @@ app.post('/api/login', (req, res) => {
           const refreshToken = createRefreshToken(user);
 
           res.cookie('auth_token', accessToken, {
+            secure: true,
             httpOnly: true,
-            secure: process.env.NODE_ENV === 'production',
-            sameSite: 'strict',
+            sameSite: 'none',
           });
 
           res.cookie('refresh_token', refreshToken, {
+            secure: true,
             httpOnly: true,
-            secure: process.env.NODE_ENV === 'production',
-            sameSite: 'strict',
+            sameSite: 'none',
           });
 
           return res.status(200).json({
@@ -127,9 +140,9 @@ app.post('/api/refresh', (req, res) => {
 
     const accessToken = createAccessToken(decoded);
     res.cookie('auth_token', accessToken, {
+      secure: true,
       httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
-      sameSite: 'strict',
+      sameSite: 'none',
     });
 
     return res.status(200).json({ message: 'Token refreshed successfully' });
@@ -158,14 +171,14 @@ app.get('/api/session', (req, res) => {
 // LOGOUT
 app.post('/api/logout', (req, res) => {
   res.clearCookie('auth_token', {
+    secure: true,
     httpOnly: true,
-    secure: process.env.NODE_ENV === 'production',
-    sameSite: 'strict',
+    sameSite: 'none',
   });
   res.clearCookie('refresh_token', {
+    secure: true,
     httpOnly: true,
-    secure: process.env.NODE_ENV === 'production',
-    sameSite: 'strict',
+    sameSite: 'none',
   });
 
   return res.status(200).json({ message: 'Logout successful' });
