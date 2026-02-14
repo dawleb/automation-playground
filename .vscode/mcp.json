@@ -1,16 +1,13 @@
 {
-	"servers": {
-		"playwright": {
-			"type": "stdio",
-			"command": "npx",
-			"args": [
-				"@playwright/mcp@latest",
-                "--secrets=.vscode/secrets.env",
-				"--config=.vscode/config.json",
-                "--init-page=.vscode/init-page.ts",
-				"--init-script=.vscode/init-script.js"
-			]
-		},
-	},
-	"inputs": []
+  "servers": {
+    "playwright": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+          "@playwright/mcp@latest",
+          "--secrets=.vscode/secrets.env",
+          "--init-page=C:/Users/Admin/Git/automation-playground/.vscode/init-page.ts"
+      ]
+    }
+  }
 }

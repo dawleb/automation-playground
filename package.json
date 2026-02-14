@@ -6,13 +6,13 @@
     "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,json,md,yml,yaml}\""
   },
   "devDependencies": {
-    "@badeball/cypress-cucumber-preprocessor": "^22.0.1",
-    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.5",
-    "@cypress/webpack-preprocessor": "^6.0.4",
-    "@playwright/test": "^1.56.1",
-    "esbuild": "^0.25.4",
-    "ts-loader": "^9.5.2",
+    "@badeball/cypress-cucumber-preprocessor": "^24.0.0",
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.8",
+    "@cypress/webpack-preprocessor": "^7.0.2",
+    "@playwright/test": "^1.58.2",
+    "esbuild": "^0.27.3",
+    "ts-loader": "^9.5.4",
     "ts-node": "^10.9.2",
-    "typescript": "^5.9.2"
+    "typescript": "^5.9.3"
   }
 }
